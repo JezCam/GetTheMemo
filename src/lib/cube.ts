@@ -1,7 +1,6 @@
 import { Move } from './definitions'
-import { xyz, yzx, zxy } from './utils'
 
-export const STICKER_SIZE = 6
+export const STICKER_SIZE = 4
 
 export const COLORS = [
     '#ffffff', // white
@@ -11,6 +10,130 @@ export const COLORS = [
     '#2563eb', // blue
     '#eab308', // yellow
 ]
+
+export const CORNERS = [
+    0, 2, 6, 8, 9, 11, 15, 17, 18, 20, 24, 26, 27, 29, 33, 35, 36, 38, 42, 44,
+    45, 47, 51, 53,
+]
+export const EDGES = [
+    1, 3, 5, 7, 10, 12, 14, 16, 19, 21, 23, 25, 28, 30, 32, 34, 37, 39, 41, 43,
+    46, 48, 50, 52,
+]
+
+export const STICKER_BORDER_RADIUS = [
+    '0px 10px 10px 10px', // A
+    '10px 10px 10px 10px', // A
+    '10px 0px 10px 10px', // B
+    '10px 10px 10px 10px', // D
+    '10px 10px 10px 10px', // center
+    '10px 10px 10px 10px', // B
+    '10px 10px 10px 0px', // D
+    '10px 10px 10px 10px', // C
+    '10px 10px 0px 10px', // C
+    '10px 0px 10px 10px', // E
+    '10px 10px 10px 10px', // E
+    '10px 10px 0px 10px', // F
+    '10px 10px 10px 10px', // H
+    '10px 10px 10px 10px', // center
+    '10px 10px 10px 10px', // F
+    '0px 10px 10px 10px', // H
+    '10px 10px 10px 10px', // G
+    '10px 10px 10px 0px', // G
+    '0px 10px 10px 10px', // I
+    '10px 10px 10px 10px', // I
+    '10px 0px 10px 10px', // J
+    '10px 10px 10px 10px', // L
+    '10px 10px 10px 10px', // center
+    '10px 10px 10px 10px', // J
+    '10px 10px 10px 0px', // L
+    '10px 10px 10px 10px', // K
+    '10px 10px 0px 10px', // K
+    '10px 10px 10px 0px', // M
+    '10px 10px 10px 10px', // M
+    '0px 10px 10px 10px', // N
+    '10px 10px 10px 10px', // P
+    '10px 10px 10px 10px', // center
+    '10px 10px 10px 10px', // N
+    '10px 10px 0px 10px', // P
+    '10px 10px 10px 10px', // O
+    '10px 0px 10px 10px', // O
+    '10px 10px 0px 10px', // Q
+    '10px 10px 10px 10px', // Q
+    '10px 10px 10px 0px', // R
+    '10px 10px 10px 10px', // T
+    '10px 10px 10px 10px', // center
+    '10px 10px 10px 10px', // R
+    '10px 0px 10px 10px', // T
+    '10px 10px 10px 10px', // S
+    '0px 10px 10px 10px', // S
+    '10px 10px 0px 10px', // U
+    '10px 10px 10px 10px', // U
+    '10px 10px 10px 0px', // V
+    '10px 10px 10px 10px', // X
+    '10px 10px 10px 10px', // center
+    '10px 10px 10px 10px', // V
+    '10px 0px 10px 10px', // X
+    '10px 10px 10px 10px', // W
+    '0px 10px 10px 10px', // W
+]
+
+export const STICKER_FOCUS_TRANSFORM = [
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // A
+    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // A
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // B
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // D
+    '', // center
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // B
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // D
+    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // C
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // C
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // E
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // E
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // F
+    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // H
+    '', // center
+    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // F
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // H
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // G
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // G
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // I
+    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // I
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // J
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // L
+    '', // center
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // J
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // L
+    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // K
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // K
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // M
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // M
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // N
+    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // P
+    '', // center
+    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // N
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // P
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // O
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // O
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // Q
+    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // Q
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // R
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // T
+    '', // center
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // R
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // T
+    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // S
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // S
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // U
+    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // U
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // V
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // X
+    '', // center
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // V
+    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // X
+    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // W
+    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // W
+]
+
 export const STICKER_DEFAULT_LETTERS = [
     'A',
     'A',
@@ -160,6 +283,23 @@ export const moves: Record<Move, number[]> = {
         38, 39, 40, 41, 42, 43, 44, 8, 7, 6, 48, 49, 50, 51, 52, 53,
     ],
 }
+
+const deg = Math.PI / 180
+export const xyz = (
+    x: number,
+    y: number,
+    z: number
+): [number, number, number, string] => [x * deg, y * deg, z * deg, 'XYZ']
+export const zxy = (
+    z: number,
+    x: number,
+    y: number
+): [number, number, number, string] => [x * deg, y * deg, z * deg, 'ZXY']
+export const yzx = (
+    y: number,
+    z: number,
+    x: number
+): [number, number, number, string] => [x * deg, y * deg, z * deg, 'YZX']
 
 export const STICKER_FOCUS_ROTATIONS = [
     // White

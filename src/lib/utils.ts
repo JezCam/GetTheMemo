@@ -1,23 +1,46 @@
-import { moves } from './cube'
+import { CORNERS, EDGES, moves } from './cube'
 import { Move, Sticker } from './definitions'
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs))
+}
 
 export const applyMove = (stickers: Sticker[], move: Move): Sticker[] => {
     return stickers.map((_, index) => stickers[moves[move][index]])
 }
 
-const deg = Math.PI / 180
-export const xyz = (
-    x: number,
-    y: number,
-    z: number
-): [number, number, number, string] => [x * deg, y * deg, z * deg, 'XYZ']
-export const zxy = (
-    z: number,
-    x: number,
-    y: number
-): [number, number, number, string] => [x * deg, y * deg, z * deg, 'ZXY']
-export const yzx = (
-    y: number,
-    z: number,
-    x: number
-): [number, number, number, string] => [x * deg, y * deg, z * deg, 'YZX']
+export const getRandomPiece = (
+    currentIndex: number,
+    pieceType?: 'corner' | 'edge'
+) => {
+    switch (pieceType) {
+        case 'corner':
+            function getRandomCornerStickerIndex() {
+                const randomIndex = CORNERS[Math.floor(Math.random() * 24)]
+                if (randomIndex === currentIndex) {
+                    return getRandomCornerStickerIndex()
+                } else return randomIndex
+            }
+            return getRandomCornerStickerIndex()
+        case 'edge':
+            function getRandomEdgesStickerIndex() {
+                const randomIndex = EDGES[Math.floor(Math.random() * 24)]
+                if (randomIndex === currentIndex) {
+                    return getRandomEdgesStickerIndex()
+                } else return randomIndex
+            }
+            return getRandomEdgesStickerIndex()
+        default:
+            const centers = [4, 13, 22, 31, 40, 49]
+            function getRandomStickerIndex() {
+                const randomIndex = Math.floor(Math.random() * 54)
+                if (centers.includes(randomIndex)) {
+                    return getRandomStickerIndex()
+                } else return randomIndex
+            }
+            const randomIndex = getRandomStickerIndex()
+            return randomIndex
+    }
+}
