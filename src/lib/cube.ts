@@ -1,6 +1,8 @@
 import { Move } from './definitions'
 import { xyz, yzx, zxy } from './utils'
 
+export const STICKER_SIZE = 6
+
 export const COLORS = [
     '#ffffff', // white
     '#ea580c', // orange
@@ -64,74 +66,102 @@ export const STICKER_DEFAULT_LETTERS = [
     'X',
     'W',
     'W',
-    'X',
-    'X',
 ]
 
 export const moves: Record<Move, number[]> = {
     U: [
-        5, 3, 0, 6, 1, 7, 4, 2, 16, 17, 18, 11, 12, 13, 14, 15, 24, 25, 26, 19,
-        20, 21, 22, 23, 32, 33, 34, 27, 28, 29, 30, 31, 8, 9, 10, 35, 36, 37,
-        38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
+        6, 3, 0, 7, 4, 1, 8, 5, 2, 18, 19, 20, 12, 13, 14, 15, 16, 17, 27, 28,
+        29, 21, 22, 23, 24, 25, 26, 36, 37, 38, 30, 31, 32, 33, 34, 35, 9, 10,
+        11, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
     ],
     "U'": [
-        2, 4, 7, 1, 6, 0, 3, 5, 32, 33, 34, 11, 12, 13, 14, 15, 8, 9, 10, 19,
-        20, 21, 22, 23, 16, 17, 18, 27, 28, 29, 30, 31, 24, 25, 26, 35, 36, 37,
-        38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
+        2, 5, 8, 1, 4, 7, 0, 3, 6, 36, 37, 38, 12, 13, 14, 15, 16, 17, 9, 10,
+        11, 21, 22, 23, 24, 25, 26, 18, 19, 20, 30, 31, 32, 33, 34, 35, 27, 28,
+        29, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
+    ],
+    U2: [
+        8, 7, 6, 5, 4, 3, 2, 1, 0, 27, 28, 29, 12, 13, 14, 15, 16, 17, 36, 37,
+        38, 21, 22, 23, 24, 25, 26, 9, 10, 11, 30, 31, 32, 33, 34, 35, 18, 19,
+        20, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
     ],
     R: [
-        0, 1, 18, 3, 20, 5, 6, 23, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 42, 19,
-        44, 21, 22, 47, 29, 27, 24, 30, 25, 31, 28, 26, 7, 33, 34, 4, 36, 2, 38,
-        39, 40, 41, 37, 43, 35, 45, 46, 32,
+        0, 1, 20, 3, 4, 23, 6, 7, 26, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        47, 21, 22, 50, 24, 25, 53, 33, 30, 27, 34, 31, 28, 35, 32, 29, 8, 37,
+        38, 5, 40, 41, 2, 43, 44, 45, 46, 42, 48, 49, 39, 51, 52, 36,
     ],
     "R'": [
-        0, 1, 34, 3, 36, 5, 39, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 2, 19,
-        4, 21, 7, 23, 26, 28, 24, 25, 30, 24, 27, 29, 37, 33, 34, 44, 36, 42,
-        38, 39, 40, 41, 18, 43, 20, 45, 46, 23,
+        0, 1, 42, 3, 4, 39, 6, 7, 36, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        2, 21, 22, 5, 24, 25, 8, 29, 32, 35, 28, 31, 34, 27, 30, 33, 53, 37, 38,
+        50, 40, 41, 47, 43, 44, 45, 46, 20, 48, 49, 23, 51, 52, 26,
+    ],
+    R2: [
+        0, 1, 47, 3, 4, 50, 6, 7, 53, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        42, 21, 22, 39, 24, 25, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 37,
+        38, 23, 40, 41, 20, 43, 44, 45, 46, 2, 48, 49, 5, 51, 52, 8,
     ],
     L: [
-        32, 1, 2, 35, 4, 37, 6, 7, 13, 11, 8, 14, 9, 15, 12, 10, 0, 17, 18, 3,
-        20, 5, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 40, 33, 34, 43, 36, 45,
-        38, 39, 16, 41, 42, 19, 44, 21, 46, 47,
+        44, 1, 2, 41, 4, 5, 38, 7, 8, 15, 12, 9, 16, 13, 10, 17, 14, 11, 0, 19,
+        20, 3, 22, 23, 6, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+        51, 39, 40, 48, 42, 43, 45, 18, 46, 47, 21, 49, 50, 24, 52, 53,
     ],
     "L'": [
-        16, 1, 2, 19, 4, 21, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 40, 17, 18, 43,
-        20, 45, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 5, 35, 3, 37,
-        38, 0, 39, 41, 42, 36, 44, 34, 46, 47,
+        18, 1, 2, 21, 4, 5, 24, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 45, 19,
+        20, 48, 22, 23, 51, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+        6, 39, 40, 3, 42, 43, 0, 44, 46, 47, 41, 49, 50, 38, 52, 53,
+    ],
+    L2: [
+        45, 1, 2, 48, 4, 5, 51, 7, 8, 17, 16, 15, 14, 13, 12, 11, 10, 9, 44, 19,
+        20, 41, 22, 23, 38, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+        24, 39, 40, 21, 42, 43, 18, 0, 46, 47, 3, 49, 50, 6, 52, 53,
     ],
     D: [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 37, 38, 39, 16, 17, 18, 19,
-        20, 13, 14, 15, 24, 25, 26, 27, 28, 21, 22, 23, 32, 33, 34, 35, 36, 29,
-        30, 31, 45, 44, 40, 46, 41, 47, 44, 42,
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 42, 43, 44, 18, 19,
+        20, 21, 22, 23, 15, 16, 17, 27, 28, 29, 30, 31, 32, 24, 25, 26, 36, 37,
+        38, 39, 40, 41, 33, 34, 35, 51, 50, 45, 52, 49, 46, 53, 50, 47,
     ],
     "D'": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 21, 22, 23, 16, 17, 18, 19,
-        20, 29, 30, 31, 24, 25, 26, 27, 28, 37, 38, 39, 32, 33, 34, 35, 36, 13,
-        14, 15, 42, 44, 47, 41, 46, 40, 43, 45,
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 24, 25, 26, 18, 19,
+        20, 21, 22, 23, 33, 34, 35, 27, 28, 29, 30, 31, 32, 42, 43, 44, 36, 37,
+        38, 39, 40, 41, 15, 16, 17, 47, 50, 53, 46, 49, 52, 45, 48, 51,
+    ],
+    D2: [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33, 34, 35, 18, 19,
+        20, 21, 22, 23, 42, 43, 44, 27, 28, 29, 30, 31, 32, 15, 16, 17, 36, 37,
+        38, 39, 40, 41, 24, 25, 26, 53, 46, 51, 50, 49, 50, 47, 46, 45,
     ],
     B: [
-        26, 28, 31, 3, 4, 5, 6, 7, 2, 9, 10, 1, 12, 0, 14, 15, 16, 17, 18, 19,
-        20, 21, 22, 23, 24, 25, 47, 27, 46, 29, 30, 45, 37, 35, 32, 38, 33, 39,
-        36, 34, 40, 41, 42, 43, 44, 8, 11, 13,
+        29, 32, 35, 3, 4, 5, 6, 7, 8, 2, 10, 11, 1, 13, 14, 0, 16, 17, 18, 19,
+        20, 21, 22, 23, 24, 25, 26, 27, 28, 53, 30, 31, 52, 33, 34, 51, 42, 39,
+        36, 43, 40, 37, 44, 41, 38, 45, 46, 47, 48, 49, 50, 9, 12, 15,
     ],
     "B'": [
-        13, 11, 8, 3, 4, 5, 6, 7, 45, 9, 10, 46, 12, 47, 14, 15, 16, 17, 18, 19,
-        20, 21, 22, 23, 24, 25, 0, 27, 1, 29, 30, 2, 34, 36, 39, 33, 38, 32, 35,
-        37, 40, 41, 42, 43, 44, 31, 28, 26,
+        15, 12, 9, 3, 4, 5, 6, 7, 8, 51, 10, 11, 52, 13, 14, 53, 16, 17, 18, 19,
+        20, 21, 22, 23, 24, 25, 26, 27, 28, 0, 30, 31, 1, 33, 34, 2, 38, 41, 44,
+        37, 40, 43, 36, 39, 42, 45, 46, 47, 48, 49, 50, 35, 32, 29,
+    ],
+    B2: [
+        53, 52, 51, 3, 4, 5, 6, 7, 8, 35, 10, 11, 32, 13, 14, 29, 16, 17, 18,
+        19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 15, 30, 31, 12, 33, 34, 9, 44,
+        43, 42, 41, 40, 39, 38, 37, 36, 45, 46, 47, 48, 49, 50, 2, 1, 0,
     ],
     F: [
-        0, 1, 2, 3, 4, 15, 12, 10, 8, 9, 40, 11, 41, 13, 14, 42, 21, 19, 16, 22,
-        17, 23, 20, 18, 5, 25, 26, 6, 28, 7, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-        39, 29, 27, 24, 43, 44, 45, 46, 47,
+        0, 1, 2, 3, 4, 5, 17, 14, 11, 9, 10, 45, 12, 13, 46, 15, 16, 47, 24, 21,
+        18, 25, 22, 19, 26, 23, 20, 6, 28, 29, 7, 31, 32, 8, 34, 35, 36, 37, 38,
+        39, 40, 41, 42, 43, 44, 33, 30, 27, 48, 49, 50, 51, 52, 53,
     ],
     "F'": [
-        0, 1, 2, 3, 4, 24, 27, 29, 8, 9, 7, 11, 6, 13, 14, 5, 18, 20, 23, 17,
-        22, 16, 19, 21, 42, 25, 26, 41, 28, 40, 30, 31, 32, 33, 34, 35, 36, 37,
-        38, 39, 10, 12, 15, 43, 44, 45, 46, 47,
+        0, 1, 2, 3, 4, 5, 27, 30, 33, 9, 10, 8, 12, 13, 7, 15, 16, 6, 20, 23,
+        26, 19, 22, 25, 18, 21, 24, 47, 28, 29, 46, 31, 32, 45, 34, 35, 36, 37,
+        38, 39, 40, 41, 42, 43, 44, 11, 14, 17, 48, 49, 50, 51, 52, 53,
+    ],
+    F2: [
+        0, 1, 2, 3, 4, 5, 47, 46, 45, 9, 10, 33, 12, 13, 30, 15, 16, 27, 26, 25,
+        24, 23, 22, 21, 20, 19, 18, 17, 28, 29, 14, 31, 32, 11, 34, 35, 36, 37,
+        38, 39, 40, 41, 42, 43, 44, 8, 7, 6, 48, 49, 50, 51, 52, 53,
     ],
 }
 
-export const STICKER_FOCUS_TRANSFORMS = [
+export const STICKER_FOCUS_ROTATIONS = [
     // White
     xyz(53.26, 0, -135), // A
     xyz(45, 0, 180), // A
@@ -195,63 +225,63 @@ export const STICKER_FOCUS_TRANSFORMS = [
 ]
 export const STICKER_TRANSFORMS = [
     // White
-    'translateY(-7.5rem) translateX(-7.5rem)', // A
-    'translateY(-7.5rem) translateX(-2.5rem)', // A
-    'translateY(-7.5rem) translateX(2.5rem)', // B
-    'translateX(-7.5rem) translateY(-2.5rem)', // D
-    'translateX(-2.5rem) translateY(-2.5rem)', // center
-    'translateX(2.5rem) translateY(-2.5rem)', // B
-    'translateX(-7.5rem) translateY(2.5rem)', // D
-    'translateX(-2.5rem) translateY(2.5rem)', // C
-    'translateX(2.5rem) translateY(2.5rem)', // C
+    `translateX(-${1.5 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // A
+    `translateX(-${0.5 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // A
+    `translateX(${0.5 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // B
+    `translateX(-${1.5 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // D
+    `translateX(-${0.5 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // center
+    `translateX(${0.5 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // B
+    `translateX(-${1.5 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // D
+    `translateX(-${0.5 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // C
+    `translateX(${0.5 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem) translateZ(${1.5 * STICKER_SIZE}rem)`, // C
     // Orange
-    'translateX(-10rem) translateY(-7.5rem) translateZ(-12.5rem) rotateY(-90deg)', // E
-    'translateX(-10rem) translateY(-7.5rem) translateZ(-7.5rem) rotateY(-90deg)', // E
-    'translateX(-10rem) translateY(-7.5rem) translateZ(-2.5rem) rotateY(-90deg)', // F
-    'translateX(-10rem) translateY(-2.5rem) translateZ(-12.5rem) rotateY(-90deg)', // H
-    'translateX(-10rem) translateY(-2.5rem) translateZ(-7.5rem) rotateY(-90deg)', // center
-    'translateX(-10rem) translateY(-2.5rem) translateZ(-2.5rem) rotateY(-90deg)', // F
-    'translateX(-10rem) translateY(2.5rem) translateZ(-12.5rem) rotateY(-90deg)', // H
-    'translateX(-10rem) translateY(2.5rem) translateZ(-7.5rem) rotateY(-90deg)', // G
-    'translateX(-10rem) translateY(2.5rem) translateZ(-2.5rem) rotateY(-90deg)', // G
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(${STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem)`, // E
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(${STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem)`, // E
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(${STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem)`, // F
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem)`, // H
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem)`, // center
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem)`, // F
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(-${STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem)`, // H
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(-${STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem)`, // G
+    `rotateY(-90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(-${STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem)`, // G
     // Green
-    'translateX(-7.5rem) translateY(5rem) translateZ(-2.5rem) rotateX(-90deg)', // I
-    'translateX(-2.5rem) translateY(5rem) translateZ(-2.5rem) rotateX(-90deg)', // I
-    'translateX(2.5rem) translateY(5rem) translateZ(-2.5rem) rotateX(-90deg)', // J
-    'translateX(-7.5rem) translateY(5rem) translateZ(-7.5rem) rotateX(-90deg)', // L
-    'translateX(-2.5rem) translateY(5rem) translateZ(-7.5rem) rotateX(-90deg)', // center
-    'translateX(2.5rem) translateY(5rem) translateZ(-7.5rem) rotateX(-90deg)', // J
-    'translateX(-7.5rem) translateY(5rem) translateZ(-12.5rem) rotateX(-90deg)', // L
-    'translateX(-2.5rem) translateY(5rem) translateZ(-12.5rem) rotateX(-90deg)', // K
-    'translateX(2.5rem) translateY(5rem) translateZ(-12.5rem) rotateX(-90deg)', // K
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateY(-${STICKER_SIZE}rem) translateX(-${1.5 * STICKER_SIZE}rem)`, // I
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateY(-${STICKER_SIZE}rem) translateX(-${0.5 * STICKER_SIZE}rem)`, // I
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateY(-${STICKER_SIZE}rem) translateX(${0.5 * STICKER_SIZE}rem)`, // J
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateX(-${1.5 * STICKER_SIZE}rem)`, // L
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateX(-${0.5 * STICKER_SIZE}rem)`, // center
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateX(${0.5 * STICKER_SIZE}rem)`, // J
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateY(${STICKER_SIZE}rem) translateX(-${1.5 * STICKER_SIZE}rem)`, // L
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateY(${STICKER_SIZE}rem) translateX(-${0.5 * STICKER_SIZE}rem)`, // K
+    `rotateX(-90deg) translateZ(${STICKER_SIZE}rem) translateY(${STICKER_SIZE}rem) translateX(${0.5 * STICKER_SIZE}rem)`, // K
     // Red
-    'translateX(5rem) translateY(2.5rem) translateZ(-2.5rem) rotateY(90deg)', // M
-    'translateX(5rem) translateY(-2.5rem) translateZ(-2.5rem) rotateY(90deg)', // M
-    'translateX(5rem) translateY(-7.5rem) translateZ(-2.5rem) rotateY(90deg)', // N
-    'translateX(5rem) translateY(2.5rem) translateZ(-7.5rem) rotateY(90deg)', // P
-    'translateX(5rem) translateY(-2.5rem) translateZ(-7.5rem) rotateY(90deg)', // center
-    'translateX(5rem) translateY(-7.5rem) translateZ(-7.5rem) rotateY(90deg)', // N
-    'translateX(5rem) translateY(2.5rem) translateZ(-12.5rem) rotateY(90deg)', // P
-    'translateX(5rem) translateY(-2.5rem) translateZ(-12.5rem) rotateY(90deg)', // O
-    'translateX(5rem) translateY(-7.5rem) translateZ(-12.5rem) rotateY(90deg)', // O
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateX(-${STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem)`, // M
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateX(-${STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem)`, // M
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateX(-${STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem)`, // N
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem)`, // P
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem)`, // center
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem)`, // N
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateX(${STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem)`, // P
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateX(${STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem)`, // O
+    `rotateY(90deg) translateZ(${STICKER_SIZE}rem) translateX(${STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem)`, // O
     // Blue
-    'translateX(2.5rem) translateY(-10rem) translateZ(-2.5rem) rotateX(90deg)', // Q
-    'translateX(-2.5rem) translateY(-10rem) translateZ(-2.5rem) rotateX(90deg)', // Q
-    'translateX(-7.5rem) translateY(-10rem) translateZ(-2.5rem) rotateX(90deg)', // R
-    'translateX(2.5rem) translateY(-10rem) translateZ(-7.5rem) rotateX(90deg)', // T
-    'translateX(-2.5rem) translateY(-10rem) translateZ(-7.5rem) rotateX(90deg)', // center
-    'translateX(-7.5rem) translateY(-10rem) translateZ(-7.5rem) rotateX(90deg)', // R
-    'translateX(2.5rem) translateY(-10rem) translateZ(-12.5rem) rotateX(90deg)', // T
-    'translateX(-2.5rem) translateY(-10rem) translateZ(-12.5rem) rotateX(90deg)', // S
-    'translateX(-7.5rem) translateY(-10rem) translateZ(-12.5rem) rotateX(90deg)', // S
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(${STICKER_SIZE}rem) translateX(${0.5 * STICKER_SIZE}rem)`, // Q
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(${STICKER_SIZE}rem) translateX(-${0.5 * STICKER_SIZE}rem)`, // Q
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(${STICKER_SIZE}rem) translateX(-${1.5 * STICKER_SIZE}rem)`, // R
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(${0.5 * STICKER_SIZE}rem)`, // T
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(-${0.5 * STICKER_SIZE}rem)`, // center
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateX(-${1.5 * STICKER_SIZE}rem)`, // R
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(-${STICKER_SIZE}rem) translateX(${0.5 * STICKER_SIZE}rem)`, // T
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(-${STICKER_SIZE}rem) translateX(-${0.5 * STICKER_SIZE}rem)`, // S
+    `rotateX(90deg) translateZ(${2 * STICKER_SIZE}rem) translateY(-${STICKER_SIZE}rem) translateX(-${1.5 * STICKER_SIZE}rem)`, // S
     // Yellow
-    'translateY(2.5rem) translateX(-7.5rem) translateZ(-15rem) rotateY(180deg)', // U
-    'translateY(2.5rem) translateX(-2.5rem) translateZ(-15rem) rotateY(180deg)', // U
-    'translateY(2.5rem) translateX(2.5rem) translateZ(-15rem) rotateY(180deg)', // V
-    'translateY(-2.5rem) translateX(-7.5rem) translateZ(-15rem) rotateY(180deg)', // X
-    'translateY(-2.5rem) translateX(-2.5rem) translateZ(-15rem) rotateY(180deg)', // center
-    'translateY(-2.5rem) translateX(2.5rem) translateZ(-15rem) rotateY(180deg)', // V
-    'translateY(-7.5rem) translateX(-7.5rem) translateZ(-15rem) rotateY(180deg)', // X
-    'translateY(-7.5rem) translateX(-2.5rem) translateZ(-15rem) rotateY(180deg)', // W
-    'translateY(-7.5rem) translateX(2.5rem) translateZ(-15rem) rotateY(180deg)', // W
+    `translateX(-${1.5 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // U
+    `translateX(-${0.5 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // U
+    `translateX(${0.5 * STICKER_SIZE}rem) translateY(${0.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // V
+    `translateX(-${1.5 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // X
+    `translateX(-${0.5 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // center
+    `translateX(${0.5 * STICKER_SIZE}rem) translateY(-${0.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // V
+    `translateX(-${1.5 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // X
+    `translateX(-${0.5 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // W
+    `translateX(${0.5 * STICKER_SIZE}rem) translateY(-${1.5 * STICKER_SIZE}rem) translateZ(-${1.5 * STICKER_SIZE}rem) rotateY(180deg)`, // W
 ]

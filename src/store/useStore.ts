@@ -1,5 +1,6 @@
 import { STICKER_DEFAULT_LETTERS } from '@/lib/cube'
-import { Sticker } from '@/lib/definitions'
+import { Move, Sticker } from '@/lib/definitions'
+import { applyMove } from '@/lib/utils'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -8,25 +9,30 @@ type state = {
     rotation: number
 }
 
+const defaultStickers = STICKER_DEFAULT_LETTERS.map((letter, index) => ({
+    letter: letter,
+    color: Math.floor(index / 9),
+}))
+
 const stateDefault: state = {
-    stickers: STICKER_DEFAULT_LETTERS.map((letter, index) => ({
-        letter: letter,
-        color: Math.floor(index / 9),
-    })),
+    stickers: defaultStickers,
     rotation: 0,
 }
 
 export const useStore = create(
     persist<
         state & {
-            setStickers: (stickers: Sticker[]) => void
             setRotation: (rotation: number) => void
+            applyMove: (move: Move) => void
+            solve: () => void
         }
     >(
         (set, get) => ({
             ...stateDefault,
-            setStickers: (stickers) => set({ stickers }),
             setRotation: (rotation) => set({ rotation }),
+            applyMove: (move) =>
+                set({ stickers: applyMove(get().stickers, move) }),
+            solve: () => set({ stickers: defaultStickers }),
         }),
         { name: 'state' }
     )
