@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
         <div className="flex h-screen w-screen items-center justify-center gap-64 bg-background">
-            <div className="bg-card flex flex-col items-center gap-6 rounded-3xl border-[1px] border-white/10 p-6">
+            <div className="flex flex-col items-center gap-8 rounded-3xl border-[1px] border-white/10 bg-card p-6">
                 {/* Top */}
                 {appState === 'letters' && <LettersTop />}
                 {appState === 'configure' && <ConfigureTop />}

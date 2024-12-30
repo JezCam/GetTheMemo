@@ -3,10 +3,20 @@ import { TooltipProvider } from '../ui/tooltip'
 import Button from '../ui/button'
 import { Settings2, Book } from 'lucide-react'
 import { useStore } from '@/store/useStore'
-import { AppState } from '@/lib/definitions'
+import { AppState, LettersState } from '@/lib/definitions'
 
 export default function LettersTop() {
-    const { score, best, setAppState } = useStore()
+    const {
+        score,
+        best,
+        setAppState,
+        lettersState,
+        setLettersState,
+        setPreviousLettersState,
+        rotation,
+        setPreviousRotation,
+        setInput,
+    } = useStore()
 
     return (
         <div className="flex gap-3 font-semibold text-white">
@@ -23,14 +33,14 @@ export default function LettersTop() {
                 {/* Score */}
                 <div className="flex flex-col items-center gap-2 text-sm">
                     Score
-                    <div className="border-muted-foreground relative flex h-20 w-20 items-center justify-center rounded-lg border text-2xl">
+                    <div className="relative flex h-20 w-20 items-center justify-center rounded-lg border border-muted-foreground text-2xl">
                         {score}
                     </div>
                 </div>
                 {/* Best */}
                 <div className="flex flex-col items-center gap-2 text-sm">
                     Best
-                    <div className="border-muted-foreground relative flex h-20 w-20 items-center justify-center rounded-lg border text-2xl">
+                    <div className="relative flex h-20 w-20 items-center justify-center rounded-lg border border-muted-foreground text-2xl">
                         {best}
                     </div>
                 </div>
@@ -39,7 +49,13 @@ export default function LettersTop() {
                     tooltip="Memo walkthrough"
                     position="right"
                     variant="secondary"
-                    onClick={() => setAppState(AppState.Memo)}
+                    onClick={() => {
+                        setPreviousLettersState(lettersState)
+                        setPreviousRotation(rotation)
+                        setLettersState(LettersState.Disabled)
+                        setInput('')
+                        setAppState(AppState.Memo)
+                    }}
                 >
                     <Book />
                 </Button>

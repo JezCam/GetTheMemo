@@ -21,117 +21,117 @@ export const EDGES = [
 ]
 
 export const STICKER_BORDER_RADIUS = [
-    '0px 10px 10px 10px', // A
-    '10px 10px 10px 10px', // A
-    '10px 0px 10px 10px', // B
-    '10px 10px 10px 10px', // D
-    '10px 10px 10px 10px', // center
-    '10px 10px 10px 10px', // B
-    '10px 10px 10px 0px', // D
-    '10px 10px 10px 10px', // C
-    '10px 10px 0px 10px', // C
-    '10px 0px 10px 10px', // E
-    '10px 10px 10px 10px', // E
-    '10px 10px 0px 10px', // F
-    '10px 10px 10px 10px', // H
-    '10px 10px 10px 10px', // center
-    '10px 10px 10px 10px', // F
-    '0px 10px 10px 10px', // H
-    '10px 10px 10px 10px', // G
-    '10px 10px 10px 0px', // G
-    '0px 10px 10px 10px', // I
-    '10px 10px 10px 10px', // I
-    '10px 0px 10px 10px', // J
-    '10px 10px 10px 10px', // L
-    '10px 10px 10px 10px', // center
-    '10px 10px 10px 10px', // J
-    '10px 10px 10px 0px', // L
-    '10px 10px 10px 10px', // K
-    '10px 10px 0px 10px', // K
-    '10px 10px 10px 0px', // M
-    '10px 10px 10px 10px', // M
-    '0px 10px 10px 10px', // N
-    '10px 10px 10px 10px', // P
-    '10px 10px 10px 10px', // center
-    '10px 10px 10px 10px', // N
-    '10px 10px 0px 10px', // P
-    '10px 10px 10px 10px', // O
-    '10px 0px 10px 10px', // O
-    '10px 10px 0px 10px', // Q
-    '10px 10px 10px 10px', // Q
-    '10px 10px 10px 0px', // R
-    '10px 10px 10px 10px', // T
-    '10px 10px 10px 10px', // center
-    '10px 10px 10px 10px', // R
-    '10px 0px 10px 10px', // T
-    '10px 10px 10px 10px', // S
-    '0px 10px 10px 10px', // S
-    '10px 10px 0px 10px', // U
-    '10px 10px 10px 10px', // U
-    '10px 10px 10px 0px', // V
-    '10px 10px 10px 10px', // X
-    '10px 10px 10px 10px', // center
-    '10px 10px 10px 10px', // V
-    '10px 0px 10px 10px', // X
-    '10px 10px 10px 10px', // W
-    '0px 10px 10px 10px', // W
+    `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // A
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // A
+    `${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // B
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // D
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // center
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // B
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px`, // D
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // C
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'}`, // C
+    `${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // E
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // E
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'}`, // F
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // H
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // center
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // F
+    `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // H
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // G
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px`, // G
+    `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // I
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // I
+    `${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // J
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // L
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // center
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // J
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px`, // L
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // K
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'}`, // K
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px`, // M
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // M
+    `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // N
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // P
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // center
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // N
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'}`, // P
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // O
+    `${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // O
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'}`, // Q
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // Q
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px`, // R
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // T
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // center
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // R
+    `${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // T
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // S
+    `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // S
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'}`, // U
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // U
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} 0px`, // V
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // X
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // center
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // V
+    `${STICKER_SIZE / 6 + 'rem'} 0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // X
+    `${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // W
+    `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // W
 ]
 
 export const STICKER_FOCUS_TRANSFORM = [
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // A
-    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // A
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // B
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // D
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // A
+    `scale(1.2) translateY(${STICKER_SIZE / 6 + 'rem'})`, // A
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // B
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'})`, // D
     '', // center
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // B
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // D
-    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // C
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // C
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // E
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // E
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // F
-    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // H
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // B
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // D
+    `scale(1.2) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // C
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // C
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // E
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // E
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // F
+    `scale(1.2) translateY(${STICKER_SIZE / 6 + 'rem'})`, // H
     '', // center
-    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // F
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // H
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // G
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // G
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // I
-    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // I
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // J
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // L
+    `scale(1.2) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // F
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // H
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'})`, // G
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // G
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // I
+    `scale(1.2) translateY(${STICKER_SIZE / 6 + 'rem'})`, // I
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // J
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'})`, // L
     '', // center
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // J
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // L
-    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // K
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // K
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // M
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // M
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // N
-    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // P
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // J
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // L
+    `scale(1.2) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // K
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // K
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // M
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'})`, // M
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // N
+    `scale(1.2) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // P
     '', // center
-    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // N
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // P
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // O
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // O
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // Q
-    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // Q
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // R
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // T
+    `scale(1.2) translateY(${STICKER_SIZE / 6 + 'rem'})`, // N
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // P
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // O
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // O
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // Q
+    `scale(1.2) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // Q
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // R
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // T
     '', // center
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // R
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // T
-    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // S
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // S
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // U
-    `scale(1.6) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // U
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // V
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // X
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'})`, // R
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // T
+    `scale(1.2) translateY(${STICKER_SIZE / 6 + 'rem'})`, // S
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // S
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // U
+    `scale(1.2) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // U
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(-${STICKER_SIZE / 6 + 'rem'})`, // V
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'})`, // X
     '', // center
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'})`, // V
-    `scale(1.6) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // X
-    `scale(1.6) translateY(${STICKER_SIZE / 6 + 'rem'})`, // W
-    `scale(1.6) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // W
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'})`, // V
+    `scale(1.2) translateX(-${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // X
+    `scale(1.2) translateY(${STICKER_SIZE / 6 + 'rem'})`, // W
+    `scale(1.2) translateX(${STICKER_SIZE / 6 + 'rem'}) translateY(${STICKER_SIZE / 6 + 'rem'})`, // W
 ]
 
 export const STICKER_DEFAULT_LETTERS = [
@@ -228,7 +228,7 @@ export const moves: Record<Move, number[]> = {
         51, 39, 40, 48, 42, 43, 45, 18, 46, 47, 21, 49, 50, 24, 52, 53,
     ],
     "L'": [
-        18, 1, 2, 21, 4, 5, 24, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 45, 19,
+        18, 1, 2, 21, 4, 5, 24, 7, 8, 11, 14, 17, 10, 13, 16, 9, 12, 15, 45, 19,
         20, 48, 22, 23, 51, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
         6, 39, 40, 3, 42, 43, 0, 44, 46, 47, 41, 49, 50, 38, 52, 53,
     ],
@@ -240,7 +240,7 @@ export const moves: Record<Move, number[]> = {
     D: [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 42, 43, 44, 18, 19,
         20, 21, 22, 23, 15, 16, 17, 27, 28, 29, 30, 31, 32, 24, 25, 26, 36, 37,
-        38, 39, 40, 41, 33, 34, 35, 51, 50, 45, 52, 49, 46, 53, 50, 47,
+        38, 39, 40, 41, 33, 34, 35, 51, 48, 45, 52, 49, 46, 53, 50, 47,
     ],
     "D'": [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 24, 25, 26, 18, 19,
@@ -250,7 +250,7 @@ export const moves: Record<Move, number[]> = {
     D2: [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33, 34, 35, 18, 19,
         20, 21, 22, 23, 42, 43, 44, 27, 28, 29, 30, 31, 32, 15, 16, 17, 36, 37,
-        38, 39, 40, 41, 24, 25, 26, 53, 46, 51, 50, 49, 50, 47, 46, 45,
+        38, 39, 40, 41, 24, 25, 26, 53, 52, 51, 50, 49, 48, 47, 46, 45,
     ],
     B: [
         29, 32, 35, 3, 4, 5, 6, 7, 8, 2, 10, 11, 1, 13, 14, 0, 16, 17, 18, 19,

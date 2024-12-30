@@ -3,6 +3,7 @@ import {
     AppState,
     ConfigureState,
     LettersState,
+    MemoState,
     Move,
     Sticker,
     Style,
@@ -14,9 +15,14 @@ import { persist } from 'zustand/middleware'
 type state = {
     appState: AppState
     lettersState: LettersState
+    previousLettersState: LettersState
     configureState: ConfigureState
+    memoState: MemoState
+    cornerMemo: string
+    edgeMemo: string
     stickers: Sticker[]
     rotation: number
+    previousRotation: number
     score: number
     best: number
     corners: boolean
@@ -33,9 +39,14 @@ const defaultStickers = STICKER_DEFAULT_LETTERS.map((letter, index) => ({
 const stateDefault: state = {
     appState: AppState.Letters,
     lettersState: LettersState.Guessing,
+    previousLettersState: LettersState.Guessing,
     configureState: ConfigureState.Main,
+    memoState: MemoState.Before,
+    cornerMemo: '',
+    edgeMemo: '',
     stickers: defaultStickers,
     rotation: 0,
+    previousRotation: 0,
     score: 0,
     best: 0,
     corners: true,
@@ -49,8 +60,13 @@ export const useStore = create(
         state & {
             setAppState: (appState: AppState) => void
             setLettersState: (lettersState: LettersState) => void
+            setPreviousLettersState: (lettersState: LettersState) => void
             setConfigureState: (configureState: ConfigureState) => void
+            setMemoState: (memoState: MemoState) => void
+            setCornerMemo: (cornerMemo: string) => void
+            setEdgeMemo: (edgeMemo: string) => void
             setRotation: (rotation: number) => void
+            setPreviousRotation: (previousRotation: number) => void
             applyMove: (move: Move) => void
             solve: () => void
             setScore: (score: number) => void
@@ -65,8 +81,15 @@ export const useStore = create(
             ...stateDefault,
             setAppState: (appState) => set({ appState }),
             setLettersState: (lettersState) => set({ lettersState }),
+            setPreviousLettersState: (previousLettersState) =>
+                set({ previousLettersState }),
             setConfigureState: (configureState) => set({ configureState }),
+            setMemoState: (memoState) => set({ memoState }),
+            setCornerMemo: (cornerMemo) => set({ cornerMemo }),
+            setEdgeMemo: (edgeMemo) => set({ edgeMemo }),
             setRotation: (rotation) => set({ rotation }),
+            setPreviousRotation: (previousRotation) =>
+                set({ previousRotation }),
             applyMove: (move) =>
                 set({ stickers: applyMove(get().stickers, move) }),
             solve: () => set({ stickers: defaultStickers }),

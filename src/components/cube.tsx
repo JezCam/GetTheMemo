@@ -23,7 +23,7 @@ export default function Cube() {
                 width: STICKER_SIZE * 5 + 'rem',
                 height: STICKER_SIZE * 5 + 'rem',
             }}
-            className="mb-6 flex items-center justify-center"
+            className="pointer-events-none mb-6 flex items-center justify-center"
         >
             <div style={{ perspective: 4.5 * STICKER_SIZE + 'rem' }}>
                 <div
@@ -45,7 +45,10 @@ export default function Cube() {
                                 ...{
                                     stickerless: {},
                                     black: {
-                                        padding: STICKER_SIZE / 20 + 'rem',
+                                        padding:
+                                            index === rotation
+                                                ? ''
+                                                : STICKER_SIZE / 20 + 'rem',
                                     },
                                     white: {
                                         padding: STICKER_SIZE / 20 + 'rem',
@@ -65,55 +68,41 @@ export default function Cube() {
                         >
                             <div
                                 style={{
+                                    borderRadius:
+                                        index === rotation
+                                            ? STICKER_SIZE / 6 + 'rem'
+                                            : STICKER_BORDER_RADIUS[index],
                                     transform:
                                         index === rotation
                                             ? STICKER_FOCUS_TRANSFORM[rotation]
                                             : '',
-                                    borderRadius:
-                                        index === rotation
-                                            ? STICKER_SIZE / 5 + 'rem'
-                                            : STICKER_BORDER_RADIUS[index],
-                                    boxShadow:
-                                        index === rotation
-                                            ? {
-                                                  correct:
-                                                      'inset 0 0 0 3px green',
-                                                  incorrect:
-                                                      'inset 0 0 0 3px red',
-                                                  revealed:
-                                                      'inset 0 0 0 3px red',
-                                                  tryingAgain: '',
-                                                  guessing: '',
-                                              }[lettersState]
-                                            : 'inset 0 0 0 2px rgba(0,0,0,0.1)',
+                                    backgroundColor: COLORS[sticker.color],
+                                    opacity: index === rotation ? 1 : 0.5,
+                                    transitionProperty: 'transform, opacity',
+                                    boxShadow: 'inset 0 0 0 2px rgba(0,0,0,.1)',
                                 }}
-                                className="relative h-full w-full overflow-hidden bg-transparent transition-transform duration-700"
+                                className="relative flex h-full w-full items-center justify-center duration-700"
                             >
-                                <div
-                                    style={{
-                                        backgroundColor: COLORS[sticker.color],
-                                        opacity: index === rotation ? 1 : 0.5,
-                                        margin:
-                                            index === rotation
-                                                ? STICKER_SIZE / 10 + 'rem'
-                                                : '',
-                                        width:
-                                            index === rotation
-                                                ? STICKER_SIZE * 0.8 + 'rem'
-                                                : STICKER_SIZE + 'rem',
-                                        height:
-                                            index === rotation
-                                                ? STICKER_SIZE * 0.8 + 'rem'
-                                                : STICKER_SIZE + 'rem',
-                                        borderRadius:
-                                            index === rotation
-                                                ? STICKER_SIZE / 10 + 'rem'
-                                                : '',
-                                        transitionProperty:
-                                            'transform, opacity',
-                                    }}
-                                    className="absolute z-[-1] h-full w-full duration-700"
-                                ></div>
+                                {/* STATE INDICATOR */}
+                                {index === rotation && (
+                                    <div
+                                        style={{
+                                            border: {
+                                                correct: `3px solid ${COLORS[2]}`,
+                                                guessing: '',
+                                                incorrect: `3px solid ${COLORS[3]}`,
+                                                revealed: `3px solid ${COLORS[3]}`,
+                                                tryingAgain: '',
+                                                disabled: '',
+                                            }[lettersState],
+                                            height: STICKER_SIZE * 1.2 + 'rem',
+                                            width: STICKER_SIZE * 1.2 + 'rem',
+                                            borderRadius:
+                                                STICKER_SIZE * 0.267 + 'rem',
+                                        }}
+                                        className="absolute"
+                                    ></div>
+                                )}
                             </div>
                         </div>
                     ))}

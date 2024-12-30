@@ -35,12 +35,20 @@ export enum LettersState {
     Revealed = 'revealed',
     Correct = 'correct',
     Incorrect = 'incorrect',
+    Disabled = 'disabled',
 }
 
 export enum ConfigureState {
     Main = 'main',
     Colors = 'colors',
     Letters = 'letters',
+}
+
+export enum MemoState {
+    Before = 'before',
+    Corners = 'corners',
+    Edges = 'edges',
+    After = 'after',
 }
 
 export type Style = 'stickerless' | 'black' | 'white' | 'purple'

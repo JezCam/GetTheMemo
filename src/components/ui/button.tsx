@@ -42,19 +42,21 @@ export default function Button({
                         className={
                             {
                                 primary:
-                                    'relative flex h-20 w-20 items-center justify-center rounded-lg bg-white text-black transition-all hover:border-white hover:bg-white/80 [&_svg]:size-8',
+                                    'relative flex h-20 w-20 items-center justify-center rounded-lg bg-white text-black transition-all hover:border-white hover:bg-white/80 disabled:cursor-not-allowed [&_svg]:size-8',
                                 secondary:
-                                    'bg-secondary hover:bg-secondary/80 relative flex h-20 w-20 items-center justify-center rounded-lg border transition-all [&_svg]:size-8',
+                                    'relative flex h-20 w-20 items-center justify-center rounded-lg border bg-secondary transition-all hover:bg-secondary/80 disabled:cursor-not-allowed [&_svg]:size-8',
                                 destructive:
-                                    'relative flex h-20 w-20 items-center justify-center rounded-lg bg-red-600 transition-all hover:border-white hover:bg-red-500 [&_svg]:size-8',
+                                    'relative flex h-20 w-20 items-center justify-center rounded-lg bg-red-600 transition-all hover:border-white hover:bg-red-500 disabled:cursor-not-allowed [&_svg]:size-8',
                                 checkbox: active
                                     ? 'relative flex h-20 w-20 items-center justify-center rounded-lg border border-white bg-white/20 transition-all disabled:cursor-not-allowed [&_svg]:size-8'
-                                    : 'border-muted-foreground relative flex h-20 w-20 items-center justify-center rounded-lg border transition-all hover:border-white hover:bg-white/10 [&_svg]:size-8',
+                                    : 'relative flex h-20 w-20 items-center justify-center rounded-lg border border-muted-foreground transition-all hover:border-white hover:bg-white/10 [&_svg]:size-8',
                             }[variant]
                         }
                         {...rest}
                     >
-                        <div className="text-3xl">{children}</div>
+                        <div className="pointer-events-none text-3xl">
+                            {children}
+                        </div>
                     </button>
                 </TooltipTrigger>
             </Tooltip>
