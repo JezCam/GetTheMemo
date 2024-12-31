@@ -19,7 +19,20 @@ export default function ConfigureTop() {
         configureState,
         setConfigureState,
         setRotation,
+        previousRotation,
+        setPreviousRotation,
     } = useStore()
+
+    const resetRotation = () => {
+        setConfigureState(ConfigureState.Main)
+        if (!corners && CORNERS.includes(previousRotation)) {
+            setRotation(getRandomPiece(rotation, 'edge'))
+        } else if (!edges && EDGES.includes(previousRotation)) {
+            setRotation(getRandomPiece(rotation, 'corner'))
+        } else {
+            setRotation(previousRotation)
+        }
+    }
 
     return (
         <div className="flex gap-3 font-semibold text-white">
@@ -29,7 +42,10 @@ export default function ConfigureTop() {
                     tooltip="Go back"
                     position="left"
                     variant="secondary"
-                    onClick={() => setAppState(AppState.Letters)}
+                    onClick={() => {
+                        if (configureState === 'letters') resetRotation()
+                        setAppState(AppState.Letters)
+                    }}
                 >
                     <ArrowLeft />
                 </Button>
@@ -92,11 +108,15 @@ export default function ConfigureTop() {
                     position="right"
                     variant="checkbox"
                     active={configureState === ConfigureState.Letters}
-                    onClick={() =>
-                        configureState === ConfigureState.Letters
-                            ? setConfigureState(ConfigureState.Main)
-                            : setConfigureState(ConfigureState.Letters)
-                    }
+                    onClick={() => {
+                        if (configureState === ConfigureState.Letters) {
+                            resetRotation()
+                        } else {
+                            setConfigureState(ConfigureState.Letters)
+                            setPreviousRotation(rotation)
+                            setRotation(4)
+                        }
+                    }}
                 >
                     AA
                 </Button>

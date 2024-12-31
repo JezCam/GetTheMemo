@@ -1,5 +1,5 @@
 import { CORNERS, EDGES, moves } from './cube'
-import { Move, Sticker } from './definitions'
+import { Move } from './definitions'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
-export const applyMove = (stickers: Sticker[], move: Move): Sticker[] => {
+export const applyMove = (stickers: number[], move: Move): number[] => {
     return stickers.map((_, index) => stickers[moves[move][index]])
 }
 

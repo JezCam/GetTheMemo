@@ -25,7 +25,7 @@ export default function Button({
                     right: 'flex-start',
                 }[position],
             }}
-            className="flex flex-col gap-2 text-sm"
+            className="flex flex-col gap-2 text-sm font-semibold"
         >
             {label}
             <Tooltip>
@@ -49,7 +49,7 @@ export default function Button({
                                     'relative flex h-20 w-20 items-center justify-center rounded-lg bg-red-600 transition-all hover:border-white hover:bg-red-500 disabled:cursor-not-allowed [&_svg]:size-8',
                                 checkbox: active
                                     ? 'relative flex h-20 w-20 items-center justify-center rounded-lg border border-white bg-white/20 transition-all disabled:cursor-not-allowed [&_svg]:size-8'
-                                    : 'relative flex h-20 w-20 items-center justify-center rounded-lg border border-muted-foreground transition-all hover:border-white hover:bg-white/10 [&_svg]:size-8',
+                                    : 'relative flex h-20 w-20 items-center justify-center rounded-lg border border-muted-foreground transition-all hover:bg-white/10 [&_svg]:size-8',
                             }[variant]
                         }
                         {...rest}

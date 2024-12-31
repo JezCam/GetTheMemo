@@ -11,6 +11,24 @@ export const COLORS = [
     '#eab308', // yellow
 ]
 
+export const BAR_COLORS = [
+    [4, 2, 3, 1], // white
+    [0, 5, 2, 4], // orange
+    [0, 5, 3, 1], // green
+    [0, 5, 4, 2], // red
+    [0, 5, 1, 3], // blue
+    [2, 4, 3, 1], // yellow
+]
+
+export const BAR_ROTATIONS = [
+    [40, 22, 31, 13], // white
+    [4, 49, 22, 40], // orange
+    [4, 49, 31, 13], // green
+    [4, 49, 40, 22], // red
+    [4, 49, 13, 31], // blue
+    [22, 40, 31, 13], // yellow
+]
+
 export const CORNERS = [
     0, 2, 6, 8, 9, 11, 15, 17, 18, 20, 24, 26, 27, 29, 33, 35, 36, 38, 42, 44,
     45, 47, 51, 53,
@@ -19,6 +37,8 @@ export const EDGES = [
     1, 3, 5, 7, 10, 12, 14, 16, 19, 21, 23, 25, 28, 30, 32, 34, 37, 39, 41, 43,
     46, 48, 50, 52,
 ]
+
+export const CENTERS = [4, 13, 22, 31, 40, 49]
 
 export const STICKER_BORDER_RADIUS = [
     `0px ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'} ${STICKER_SIZE / 6 + 'rem'}`, // A

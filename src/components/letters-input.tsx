@@ -16,8 +16,9 @@ export default function LettersInput(props: {
         corners,
         edges,
         lettersState,
+        letters,
         setLettersState,
-        stickers,
+        stickerIndexes,
         input,
         setInput,
         rotation,
@@ -28,13 +29,14 @@ export default function LettersInput(props: {
     const submitRef = useRef<HTMLButtonElement>(null)
 
     const handleReveal = () => {
-        setInput(stickers[rotation].letter)
+        const correctLetter = letters[stickerIndexes[rotation]]
+        setInput(correctLetter)
         setLettersState(LettersState.Revealed)
         props.onIncorrect()
     }
 
     const handleSubmit = () => {
-        const correctLetter = stickers[rotation].letter
+        const correctLetter = letters[stickerIndexes[rotation]]
         if (input === correctLetter) {
             if (lettersState === 'guessing') {
                 props.onCorrect()
@@ -108,7 +110,10 @@ export default function LettersInput(props: {
                             }
                         }}
                         style={{
-                            outlineColor: COLORS[stickers[rotation].color],
+                            outlineColor:
+                                COLORS[
+                                    Math.floor(stickerIndexes[rotation] % 9)
+                                ],
                             outlineOffset: 4,
                             outlineWidth: 3,
                             border: {

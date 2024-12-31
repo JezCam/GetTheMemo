@@ -5,7 +5,6 @@ import {
     LettersState,
     MemoState,
     Move,
-    Sticker,
     Style,
 } from '@/lib/definitions'
 import { applyMove } from '@/lib/utils'
@@ -20,7 +19,8 @@ type state = {
     memoState: MemoState
     cornerMemo: string
     edgeMemo: string
-    stickers: Sticker[]
+    stickerIndexes: number[]
+    letters: string[]
     rotation: number
     previousRotation: number
     score: number
@@ -31,10 +31,7 @@ type state = {
     style: Style
 }
 
-const defaultStickers = STICKER_DEFAULT_LETTERS.map((letter, index) => ({
-    letter: letter,
-    color: Math.floor(index / 9),
-}))
+const defaultStickers = Array.from(Array(54).keys())
 
 const stateDefault: state = {
     appState: AppState.Letters,
@@ -44,7 +41,8 @@ const stateDefault: state = {
     memoState: MemoState.Before,
     cornerMemo: '',
     edgeMemo: '',
-    stickers: defaultStickers,
+    stickerIndexes: Array.from(Array(54).keys()),
+    letters: STICKER_DEFAULT_LETTERS,
     rotation: 0,
     previousRotation: 0,
     score: 0,
@@ -65,6 +63,8 @@ export const useStore = create(
             setMemoState: (memoState: MemoState) => void
             setCornerMemo: (cornerMemo: string) => void
             setEdgeMemo: (edgeMemo: string) => void
+            setLetter: (index: number, letter: string) => void
+            resetLetters: (faceIndex: number) => void
             setRotation: (rotation: number) => void
             setPreviousRotation: (previousRotation: number) => void
             applyMove: (move: Move) => void
@@ -87,12 +87,26 @@ export const useStore = create(
             setMemoState: (memoState) => set({ memoState }),
             setCornerMemo: (cornerMemo) => set({ cornerMemo }),
             setEdgeMemo: (edgeMemo) => set({ edgeMemo }),
+            setLetter: (i: number, newLetter: string) =>
+                set({
+                    letters: get().letters.map((letter, j) =>
+                        j === i ? newLetter : letter
+                    ),
+                }),
+            resetLetters: (faceIndex: number) =>
+                set({
+                    letters: get().letters.map((letter, index) =>
+                        index >= faceIndex * 9 && index <= faceIndex * 9 + 8
+                            ? STICKER_DEFAULT_LETTERS[index]
+                            : letter
+                    ),
+                }),
             setRotation: (rotation) => set({ rotation }),
             setPreviousRotation: (previousRotation) =>
                 set({ previousRotation }),
             applyMove: (move) =>
-                set({ stickers: applyMove(get().stickers, move) }),
-            solve: () => set({ stickers: defaultStickers }),
+                set({ stickerIndexes: applyMove(get().stickerIndexes, move) }),
+            solve: () => set({ stickerIndexes: defaultStickers }),
             setScore: (score) => set({ score }),
             setBest: (best) => set({ best }),
             setCorners: (corners) => set({ corners }),
