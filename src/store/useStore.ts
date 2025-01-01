@@ -6,6 +6,7 @@ import {
     MemoState,
     Move,
     Style,
+    TimerState,
 } from '@/lib/definitions'
 import { applyMove } from '@/lib/utils'
 import { create } from 'zustand'
@@ -14,6 +15,8 @@ import { persist } from 'zustand/middleware'
 type state = {
     appState: AppState
     lettersState: LettersState
+    timerState: TimerState
+    runningExpiryTimestamp: number
     previousLettersState: LettersState
     configureState: ConfigureState
     memoState: MemoState
@@ -36,6 +39,8 @@ const defaultStickers = Array.from(Array(54).keys())
 const stateDefault: state = {
     appState: AppState.Letters,
     lettersState: LettersState.Guessing,
+    timerState: TimerState.Ready,
+    runningExpiryTimestamp: 0,
     previousLettersState: LettersState.Guessing,
     configureState: ConfigureState.Main,
     memoState: MemoState.Before,
@@ -58,6 +63,8 @@ export const useStore = create(
         state & {
             setAppState: (appState: AppState) => void
             setLettersState: (lettersState: LettersState) => void
+            setTimerState: (timerState: TimerState) => void
+            setRunningExpiryTimestamp: (runningExpiryTimestamp: number) => void
             setPreviousLettersState: (lettersState: LettersState) => void
             setConfigureState: (configureState: ConfigureState) => void
             setMemoState: (memoState: MemoState) => void
@@ -81,6 +88,9 @@ export const useStore = create(
             ...stateDefault,
             setAppState: (appState) => set({ appState }),
             setLettersState: (lettersState) => set({ lettersState }),
+            setTimerState: (timerState) => set({ timerState }),
+            setRunningExpiryTimestamp: (runningExpiryTimestamp) =>
+                set({ runningExpiryTimestamp }),
             setPreviousLettersState: (previousLettersState) =>
                 set({ previousLettersState }),
             setConfigureState: (configureState) => set({ configureState }),

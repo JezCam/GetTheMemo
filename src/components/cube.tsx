@@ -65,7 +65,7 @@ export default function Cube() {
                 ].map((style, i) => (
                     <div
                         onClick={() => setRotation(BAR_ROTATIONS[faceIndex][i])}
-                        key={i}
+                        key={'i' + i}
                         style={{
                             ...style,
                             width: STICKER_SIZE * 5.2 + 'rem',
@@ -78,7 +78,7 @@ export default function Cube() {
                             .fill('')
                             .map((_, j) => (
                                 <div
-                                    key={j}
+                                    key={'j' + j}
                                     style={{
                                         backgroundColor:
                                             COLORS[BAR_COLORS[faceIndex][i]],
@@ -107,9 +107,8 @@ export default function Cube() {
                                     className="h-16 w-16 bg-black/40 p-0 text-center !text-4xl"
                                 />
                             ) : (
-                                <TooltipProvider>
+                                <TooltipProvider key={i}>
                                     <Button
-                                        key={i}
                                         variant="secondary"
                                         tooltip={'Reset letters'}
                                         position={'center'}

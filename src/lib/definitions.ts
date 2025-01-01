@@ -33,6 +33,13 @@ export enum LettersState {
     Disabled = 'disabled',
 }
 
+export const enum TimerState {
+    Ready = 'ready',
+    Countdown = 'countdown',
+    Running = 'running',
+    Expired = 'expired',
+}
+
 export enum ConfigureState {
     Main = 'main',
     Colors = 'colors',

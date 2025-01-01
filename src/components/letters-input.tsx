@@ -9,8 +9,8 @@ import { LettersState } from '@/lib/definitions'
 import { getRandomPiece } from '@/lib/utils'
 
 export default function LettersInput(props: {
-    onCorrect: () => void
-    onIncorrect: () => void
+    onCorrect?: () => void
+    onIncorrect?: () => void
 }) {
     const {
         corners,
@@ -32,20 +32,20 @@ export default function LettersInput(props: {
         const correctLetter = letters[stickerIndexes[rotation]]
         setInput(correctLetter)
         setLettersState(LettersState.Revealed)
-        props.onIncorrect()
+        props.onIncorrect?.()
     }
 
     const handleSubmit = () => {
         const correctLetter = letters[stickerIndexes[rotation]]
         if (input === correctLetter) {
             if (lettersState === 'guessing') {
-                props.onCorrect()
+                props.onCorrect?.()
             }
             setLettersState(LettersState.Correct)
         } else {
             setLettersState(LettersState.Incorrect)
             setInput(correctLetter)
-            props.onIncorrect()
+            props.onIncorrect?.()
         }
     }
 

@@ -26,8 +26,6 @@ export default function MemoTop() {
     const scrambleCube = () => {
         const scrambo = new Scrambo()
         const scramble = scrambo.get()[0].split(' ')
-
-        console.log(scramble)
         scramble.forEach((move, index) => {
             setTimeout(() => {
                 applyMove(move as Move)
